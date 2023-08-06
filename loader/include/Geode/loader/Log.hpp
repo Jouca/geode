@@ -154,6 +154,7 @@ namespace geode {
             bool operator==(Log const& l);
 
             std::string toString(bool logTime = true) const;
+            std::string toString(bool logTime, uint32_t nestLevel) const;
 
             std::vector<ComponentTrait*>& getComponents();
             log_clock::time_point getTime() const;
@@ -170,6 +171,7 @@ namespace geode {
         private:
             static std::vector<Log>& logs();
             static std::ofstream& logStream();
+            static uint32_t& nestLevel();
 
             Logger() = delete;
             ~Logger() = delete;
@@ -179,8 +181,10 @@ namespace geode {
             static void setup();
 
             static void push(Log&& log);
-
             static void pop(Log* log);
+
+            static void push_nest();
+            static void pop_nest();
 
             static std::vector<Log*> list();
             static void clear();
@@ -223,5 +227,8 @@ namespace geode {
         void error(Args... args) {
             internalLog(Severity::Error, getMod(), args...);
         }
+
+        void push_nest() { Logger::push_nest(); }
+        void pop_nest() { Logger::pop_nest(); }
     }
 }
