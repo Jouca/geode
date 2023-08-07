@@ -228,7 +228,7 @@ namespace geode {
             internalLog(Severity::Error, getMod(), args...);
         }
 
-        void push_nest() { Logger::push_nest(); }
-        void pop_nest() { Logger::pop_nest(); }
+        static void push_nest() { Logger::push_nest(); }
+        static void pop_nest() { Logger::pop_nest(); }
     }
 }
