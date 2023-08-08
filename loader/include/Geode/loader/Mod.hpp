@@ -83,7 +83,7 @@ namespace geode {
         bool canDisable() const;
         bool canEnable() const;
         [[deprecated]] bool supportsUnloading() const;
-        [[deprecated("wasSuccessfullyLoaded")]] bool wasSuccesfullyLoaded() const;
+        [[deprecated("use wasSuccessfullyLoaded instead")]] bool wasSuccesfullyLoaded() const;
         bool wasSuccessfullyLoaded() const;
         [[deprecated("use getMetadata instead")]] ModInfo getModInfo() const;
         ModMetadata getMetadata() const;
