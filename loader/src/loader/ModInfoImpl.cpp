@@ -5,8 +5,7 @@
 
 #include "ModInfoImpl.hpp"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma warning(disable : 4996) // deprecation
 
 using namespace geode::prelude;
 
@@ -213,6 +212,7 @@ bool ModInfo::operator==(ModInfo const& other) const {
     return m_impl->operator==(*other.m_impl);
 }
 
+#pragma warning(suppress : 4996)
 ModInfo::ModInfo() : m_impl(std::make_unique<Impl>()) {}
 
 ModInfo::ModInfo(ModInfo const& other) : m_impl(std::make_unique<Impl>(*other.m_impl)) {}
@@ -248,5 +248,3 @@ ModInfo::operator ModMetadata() const {
 }
 
 ModInfo::~ModInfo() = default;
-
-#pragma clang diagnostic pop

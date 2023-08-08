@@ -7,10 +7,12 @@
 #include <Geode/utils/JsonValidation.hpp>
 #include <Geode/utils/VersionInfo.hpp>
 
+#pragma warning(disable : 4996) // deprecation
+
 using namespace geode::prelude;
 
 namespace geode {
-    class ModInfo::Impl {
+    class [[deprecated]] ModInfo::Impl {
     public:
         ModMetadata::Impl m_metadata;
         std::optional<IssuesInfo> m_issues;
@@ -38,11 +40,8 @@ namespace geode {
         std::vector<std::pair<std::string, std::optional<std::string>*>> getSpecialFiles();
     };
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    class ModInfoImpl {
+    class [[deprecated]] ModInfoImpl {
     public:
         static ModInfo::Impl& getImpl(ModInfo& info);
     };
-#pragma clang diagnostic pop
 }

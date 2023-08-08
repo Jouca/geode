@@ -4,6 +4,7 @@
 
 using namespace geode::prelude;
 
+#pragma warning(suppress : 4996)
 Mod::Mod(ModInfo const& info) : m_impl(std::make_unique<Impl>(this, info)) {}
 Mod::Mod(ModMetadata const& metadata) : m_impl(std::make_unique<Impl>(this, metadata)) {}
 
@@ -200,6 +201,7 @@ bool Mod::hasUnresolvedIncompatibilities() const {
     return m_impl->hasUnresolvedIncompatibilities();
 }
 
+#pragma warning(suppress : 4996)
 std::vector<Dependency> Mod::getUnresolvedDependencies() {
     return m_impl->getUnresolvedDependencies();
 }

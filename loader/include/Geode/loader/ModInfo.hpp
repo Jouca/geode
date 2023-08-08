@@ -36,6 +36,7 @@ namespace geode {
      */
     class GEODE_DLL [[deprecated("use ModMetadata instead")]] ModInfo {
         class Impl;
+#pragma warning(suppress : 4996)
         std::unique_ptr<Impl> m_impl;
 
     public:
@@ -206,12 +207,9 @@ namespace geode {
     };
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 template <>
-struct json::Serialize<geode::ModInfo> {
+struct [[deprecated]] json::Serialize<geode::ModInfo> {
     static json::Value to_json(geode::ModInfo const& info) {
         return info.toJSON();
     }
 };
-#pragma clang diagnostic pop

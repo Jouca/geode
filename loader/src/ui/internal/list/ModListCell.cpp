@@ -211,7 +211,7 @@ void ModCell::onEnable(CCObject* sender) {
     });
 }
 
-// TODO: show problems related to this mod
+// TODO: for fod maybe :3 show problems related to this mod
 void ModCell::onUnresolvedInfo(CCObject*) {
     std::string info =
         "This mod has the following "
@@ -235,7 +235,7 @@ void ModCell::onRestart(CCObject*) {
     utils::game::restart();
 }
 
-// TODO: check if there are any problems related to this mod
+// TODO: for fod maybe :3 check if there are any problems related to this mod
 void ModCell::updateState() {
     bool unresolved = m_mod->hasUnresolvedDependencies();
     if (m_enableToggle) {

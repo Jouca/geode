@@ -483,11 +483,14 @@ bool Mod::Impl::hasUnresolvedIncompatibilities() const {
     return false;
 }
 
+// msvc stop fucking screaming please i BEG YOU
+#pragma warning(suppress : 4996)
 std::vector<Dependency> Mod::Impl::getUnresolvedDependencies() {
 #pragma warning(suppress : 4996)
     std::vector<Dependency> unresolved;
     for (auto const& dep : m_metadata.getDependencies()) {
         if (!dep.isResolved()) {
+#pragma warning(suppress : 4996)
             unresolved.push_back(dep);
         }
     }

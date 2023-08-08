@@ -262,7 +262,7 @@ void Loader::Impl::refreshModsList() {
     log::error("Called deprecated stub: Loader::refreshModsList");
 }
 
-void Loader::updateAllDependencies() {
+void Loader::Impl::updateAllDependencies() {
     log::error("Called deprecated stub: Loader::updateAllDependencies");
 }
 
