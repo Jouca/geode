@@ -234,12 +234,12 @@ void Logger::pop(Log* log) {
     geode::utils::ranges::remove(Logger::logs(), *log);
 }
 
-void Logger::push_nest() {
+void Logger::pushNest() {
     if (nestLevel() == std::numeric_limits<uint32_t>::max())
         return;
     nestLevel()++;
 }
-void Logger::pop_nest() {
+void Logger::popNest() {
     if (nestLevel() == 0)
         return;
     nestLevel()--;

@@ -183,8 +183,8 @@ namespace geode {
             static void push(Log&& log);
             static void pop(Log* log);
 
-            static void push_nest();
-            static void pop_nest();
+            static void pushNest();
+            static void popNest();
 
             static std::vector<Log*> list();
             static void clear();
@@ -228,7 +228,11 @@ namespace geode {
             internalLog(Severity::Error, getMod(), args...);
         }
 
-        static void push_nest() { Logger::push_nest(); }
-        static void pop_nest() { Logger::pop_nest(); }
+        static void pushNest() {
+            Logger::pushNest();
+        }
+        static void popNest() {
+            Logger::popNest();
+        }
     }
 }
