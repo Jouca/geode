@@ -53,6 +53,14 @@ bool Mod::supportsDisabling() const {
     return m_impl->supportsDisabling();
 }
 
+bool Mod::canDisable() const {
+    return m_impl->canDisable();
+}
+
+bool Mod::canEnable() const {
+    return m_impl->canEnable();
+}
+
 bool Mod::supportsUnloading() const {
     return false;
 }
@@ -153,11 +161,11 @@ Result<> Mod::unpatch(Patch* patch) {
 }
 
 Result<> Mod::loadBinary() {
-    return m_impl->loadBinary();
+    return Err("Load mod binaries after startup is not supported");
 }
 
 Result<> Mod::unloadBinary() {
-    return m_impl->unloadBinary();
+    return Err("Unloading mod binaries is not supported");
 }
 
 Result<> Mod::enable() {
@@ -180,12 +188,16 @@ bool Mod::depends(std::string const& id) const {
     return m_impl->depends(id);
 }
 
+Result<> Mod::updateDependencies() {
+    return m_impl->updateDependencies();
+}
+
 bool Mod::hasUnresolvedDependencies() const {
     return m_impl->hasUnresolvedDependencies();
 }
 
-Result<> Mod::updateDependencies() {
-    return m_impl->updateDependencies();
+bool Mod::hasUnresolvedIncompatibilities() const {
+    return m_impl->hasUnresolvedIncompatibilities();
 }
 
 std::vector<Dependency> Mod::getUnresolvedDependencies() {

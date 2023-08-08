@@ -22,7 +22,7 @@ bool ModMetadata::Dependency::isResolved() const {
 }
 
 bool ModMetadata::Incompatibility::isResolved() const {
-    return !this->mod || !this->mod->isLoaded() || !this->version.compare(this->mod->getVersion());
+    return !this->mod || !this->version.compare(this->mod->getVersion());
 }
 
 #pragma clang diagnostic push
