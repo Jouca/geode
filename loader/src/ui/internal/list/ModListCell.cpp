@@ -89,7 +89,7 @@ void ModListCell::setupInfo(
     }
     this->addChild(versionLabel);
 
-    TagNode* apiLabel;
+    TagNode* apiLabel = nullptr;
     if (metadata.isAPI()) {
         apiLabel = TagNode::create("API");
         apiLabel->setAnchorPoint({ .0f, .5f });
